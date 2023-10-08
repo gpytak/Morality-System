@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CreatePlayer : MonoBehaviour {
-    private BasePlayer newPlayer;
+    // public CreatePlayer newPlayer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        newPlayer = new BasePlayer();
-    }
+    // // Start is called before the first frame update
+    // void Start()
+    // {
+    //     newPlayer = new CreatePlayer();
+    // }
 
-    public void CreateNewPlayer()
-    [
-        newPlayer.PlayerMorality = PlayerMorality;
-        newPlayer.PlayerReputation = playerReputation;
-    ]
+    // public void CreateNewPlayer()
+    // {
+    //     newPlayer.PlayerName = playerName;
+    //     newPlayer.PlayerMorality = PlayerMorality;
+    //     newPlayer.PlayerReputation = playerReputation;
+    //     newPlayer.PlayerKeyActions = playerKeyActions;
+    // }
 
 }

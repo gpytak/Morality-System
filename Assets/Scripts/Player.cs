@@ -4,55 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int playerMorality { get; set; }
-    public string playerReputation { get; set; }
-
     [SerializeField]
+    [Range(0,10)]
+    float moveSpeed = 1f;
+
+    // void Start()
+    // {
+    //     pool = GetComponent<UnitPool>();
+    //     player = FindObjectOfType<Player>().transform;
+    // }
     
-
-    void Start()
-    {
-        pool = GetComponent<UnitPool>();
-        player = FindObjectOfType<Player>().transform;
-    }
-    
-    // public void Move()
-    // {
-
-    // }
-
-    // public void Talk()
-    // {
-        
-    // }
-
-    // public void Interact()
-    // {
-        
-    // }
-
-    // public void Open_Game_Menu()
-    // {
-        
-    // }
-
-    // public void Accept_Quest()
-    // {
-        
-    // }
-
-    // public void Open_Quests()
-    // {
-        
-    // }
-
-    // public void Open_Inventory()
-    // {
-        
-    // }
-
-    // public void Open_Discovery_Log()
-    // {
-        
-    // }
 }

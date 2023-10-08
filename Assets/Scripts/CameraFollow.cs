@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    float z = -10; //Used to maintain the camera's z level, sometimes important for rendering
+    float z = -10;
 
     void Start()
     {
