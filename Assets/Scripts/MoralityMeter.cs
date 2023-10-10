@@ -4,7 +4,7 @@ using UnityEngine;
 
 class MoralityMeter : MonoBehaviour
 {
-    void ChangeMorality(int moralityValue, float actionWeight, float playerMorality)
+    void UpdateMorality(int moralityValue, float actionWeight, float playerMorality)
     {
         switch(moralityValue) // Check the morality value of the action
         {

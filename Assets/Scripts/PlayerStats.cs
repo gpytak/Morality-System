@@ -5,7 +5,8 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     private string _playerName = "";
-    private int _morality = 0;
+    private float _morality = 0;
+    private float _buffer = 0;
     private string _reputation = "";
 
     public string playerName {
@@ -13,9 +14,20 @@ public class Stats : MonoBehaviour
         set{ _playerName = value; }
     }
 
-    public int Morality {
+    public float Morality {
         get{ return _morality; }
         set{ _morality = value; }
+    }
+
+    public float Buffer {
+        get{ return _buffer; }
+        set{ _buffer = value; }
+    }
+
+    public struct BufferValue {
+        public float bufferGood { get; set; } // Stores the good values in the buffer meter
+        public float bufferNeutral { get; set; } // Stores the neutral values in the buffer meter
+        public float bufferBad { get; set; } // Stores the bad values in the buffer meter
     }
 
     public string Reputation {
