@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
     private string _playerName = "";
     private float _morality = 0;

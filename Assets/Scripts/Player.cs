@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    [Range(0,10)]
-    float moveSpeed = 1f;
+    
 
-    // void Start()
+    // public void OnMove(InputValue value)
     // {
-    //     pool = GetComponent<UnitPool>();
-    //     player = FindObjectOfType<Player>().transform;
+    //     moveDir = value.Get<Vector2>();
     // }
     
 }
