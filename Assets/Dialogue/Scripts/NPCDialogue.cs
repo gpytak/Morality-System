@@ -6,19 +6,25 @@ using UnityEngine;
 
 public class NPCDialogue : MonoBehaviour
 {
+    public DialogueSO[] conversation;
+
     private Transform player; // Allows the NPC to follow the player's position, so he can turn toward the player
     private SpriteRenderer speechBubbleRenderer; // Allows speech to turn on and off
+
+    private DialogueManager dialogueManager;
+    private bool dialogueInitiated;
 
     // Start is called before the first frame update
     void Start()
     {
+        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         speechBubbleRenderer = GetComponent<SpriteRenderer>();
         speechBubbleRenderer.enabled = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision) // Called as long as a Collider2D is detected within its trigger range
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && !dialogueInitiated)
         {
             // Speech bubble on
             speechBubbleRenderer.enabled = true;
@@ -36,6 +42,8 @@ public class NPCDialogue : MonoBehaviour
                 Flip();
             }
 
+            dialogueManager.InitiateDialogue(this);
+            dialogueInitiated = true;
         }
     }
 
@@ -45,6 +53,9 @@ public class NPCDialogue : MonoBehaviour
         {
             // Speech bubble off
             speechBubbleRenderer.enabled = false;
+
+            dialogueManager.TurnOffDialogue();
+            dialogueInitiated = false;
         }
     }
 
