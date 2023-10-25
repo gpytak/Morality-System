@@ -22,9 +22,34 @@ public class DialogueManager : MonoBehaviour
 
     public ActorSO[] actorSO;
 
+    // Button References
+    private GameObject[] optionButton;
+    private TMP_Text[] optionButtonText;
+    private GameObject optionsPanel;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        // Find Buttons
+        optionButton = GameObject.FindGameObjectsWithTag("OptionButton");
+        optionsPanel = GameObject.Find("OptionsPanel");
+        optionsPanel.SetActive(false);
+
+        // Find the TMP Text on the Buttons
+        optionButtonText = new TMP_Text[optionButton.Length]; // Sets array to the number of buttons it will be working with
+        for(int i = 0; i < optionButton.Length; i++)
+        {
+            optionButtonText[i] = optionButton[i].GetComponentInChildren<TMP_Text>(); // Assigns to option buttons 
+        }
+
+        // Turn off the buttons to start
+        for(int i = 0; i < optionButton.Length; i++)
+        {
+            optionButton[i].SetActive(false);
+        }
+
         dialogueCanvas = GameObject.Find("DialogueCanvas");
         actor = GameObject.Find("ActorText").GetComponent<TMP_Text>();
         portrait = GameObject.Find("Portrait").GetComponent<Image>();
@@ -65,7 +90,35 @@ public class DialogueManager : MonoBehaviour
         // Display Dialogue
         actor.text = currentSpeaker;
         portrait.sprite = currentPortrait;
-        dialogueText.text = currentConversation.dialogue[stepNum];
+
+        // If there is a branch..
+        if(currentConversation.actors[stepNum] == DialogueActors.Branch)
+        {
+            for(int i = 0; i < currentConversation.optionText.Length; i++){
+                if(currentConversation.optionText[i] == null) // No text
+                {
+                    optionButton[i].SetActive(false);
+                }
+                else
+                {
+                    optionButtonText[i].text = currentConversation.optionText[i]; // Set the button's text based on what is typed in the NPC dialogue
+                    optionButton[i].SetActive(true);
+                }
+
+                // Set the first button to be auto-selected
+                optionButton[0].GetComponent<Button>().Select();
+            }
+        }
+
+        if(stepNum< currentConversation.dialogue.Length)
+        {
+            dialogueText.text = currentConversation.dialogue[stepNum];
+        }
+        else
+        {
+            optionsPanel.SetActive(true);
+        }
+
         dialogueCanvas.SetActive(true);
         stepNum += 1;
     }
@@ -89,6 +142,33 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public void Option(int optionNum)
+    {
+        foreach (GameObject button in optionButton)
+        {
+            button.SetActive(false);
+        }
+        if(optionNum == 0)
+        {
+            currentConversation = currentConversation.option0;
+        }
+        if(optionNum == 1)
+        {
+            currentConversation = currentConversation.option1;
+        }
+        if(optionNum == 2)
+        {
+            currentConversation = currentConversation.option2;
+        }
+        if(optionNum == 3)
+        {
+            currentConversation = currentConversation.option3;
+        }
+
+        stepNum = 0;
+    }
+
+
     public void InitiateDialogue(NPCDialogue npcDialogue) // Used in NPCDialogue.cs
     {
         // The array we are currently stepping through
@@ -104,6 +184,7 @@ public class DialogueManager : MonoBehaviour
         // Debug.Log("Ended conversation. Reset the step to " + stepNum);
 
         dialogueActivated = false;
+        optionsPanel.SetActive(false);
         dialogueCanvas.SetActive(false);
     }
 

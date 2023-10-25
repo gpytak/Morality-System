@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
   m_Name: Convo - NPC Greeting
   m_EditorClassIdentifier: 
-  actors: 0100000004000000
+  actors: 010000000100000004000000
   randomActorName: 
   randomActorPortrait: {fileID: 0}
   dialogue:
@@ -20,10 +20,10 @@ MonoBehaviour:
   - Did you need something?
   optionText:
   - Hello there!
-  - None of your business.
+  - Mind your business.
   - Investigate.
-  - '[Leave]'
+  - Investigate.
   option0: {fileID: 11400000, guid: c9f9b0ef0e04b7a4db13b8a0c3a35b6e, type: 2}
   option1: {fileID: 11400000, guid: c96ff7ac2043429498111d0a8892fd76, type: 2}
   option2: {fileID: 11400000, guid: 9d05297fe45728640b37fedd43da7544, type: 2}
-  option3: {fileID: 0}
+  option3: {fileID: 11400000, guid: 9d05297fe45728640b37fedd43da7544, type: 2}
