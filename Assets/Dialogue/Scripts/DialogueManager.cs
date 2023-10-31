@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     // The NPC Dialogue we are currently stepping through
-    private DialogueSO currentConversation;
+    private DialogueSO currentConversation; // The current conversation found in the DialogueHandler in NPC
     private int stepNum; // Tracks which step in the dialogue we're in
     private bool dialogueActivated; // Lets Update() know when to display text
 
@@ -27,6 +27,11 @@ public class DialogueManager : MonoBehaviour
     private TMP_Text[] optionButtonText;
     private GameObject optionsPanel;
 
+    // Typewriter effect
+    [SerializeField]
+    private float typingSpeed = 0.02f;
+    private Coroutine typeWriterRoutine;
+    private bool canContinueText = true;
 
 
     // Start is called before the first frame update
@@ -61,7 +66,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dialogueActivated && Input.GetButtonDown("Interact"))
+        if(dialogueActivated && Input.GetButtonDown("Interact") && canContinueText)
         {
             // Cancel dialogue if there are no lines of dialogue lines remaining
             if(stepNum >= currentConversation.actors.Length)
@@ -110,11 +115,18 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if(stepNum< currentConversation.dialogue.Length)
+        // Keep the typewriter routine from running multiple times at the same time
+        if(typeWriterRoutine != null)
         {
-            dialogueText.text = currentConversation.dialogue[stepNum];
+            StopCoroutine(typeWriterRoutine);
         }
-        else
+
+        // Check the step in conversation for displaying dialogue text or display buttons
+        if(stepNum < currentConversation.dialogue.Length)
+        {
+            typeWriterRoutine = StartCoroutine(TypeWriterEffect(dialogueText.text = currentConversation.dialogue[stepNum]));
+        }
+        else // For when the conversation reaches the branch
         {
             optionsPanel.SetActive(true);
         }
@@ -129,7 +141,8 @@ public class DialogueManager : MonoBehaviour
         {
             for (int i = 0; i < actorSO.Length; i++)
             {
-                if(actorSO[i].name == currentConversation.actors[stepNum].ToString()){
+                if(actorSO[i].name == currentConversation.actors[stepNum].ToString())
+                {
                     currentSpeaker = actorSO[i].actorName;
                     currentPortrait = actorSO[i].actorPortrait;
                 }
@@ -165,7 +178,25 @@ public class DialogueManager : MonoBehaviour
             currentConversation = currentConversation.option3;
         }
 
-        stepNum = 0;
+        stepNum = 0; // Reset dialogue step counter for new conversation
+    }
+
+    private IEnumerator TypeWriterEffect(string line) // Takes in line of dialogue
+    {
+        dialogueText.text = ""; // Clears out currtent text so our text begins as empty.
+        canContinueText = false;
+        yield return new WaitForSeconds(.5f);
+        foreach (char letter in line.ToCharArray())
+        {
+            if(Input.GetButtonDown("Interact"))
+            {
+                dialogueText.text = line;
+                break;
+            }
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        canContinueText = true;
     }
 
 

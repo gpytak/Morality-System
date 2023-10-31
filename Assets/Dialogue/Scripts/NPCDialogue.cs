@@ -53,7 +53,6 @@ public class NPCDialogue : MonoBehaviour
         {
             // Speech bubble off
             speechBubbleRenderer.enabled = false;
-
             dialogueManager.TurnOffDialogue();
             dialogueInitiated = false;
         }
