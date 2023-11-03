@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -23,8 +24,8 @@ public class DialogueManager : MonoBehaviour
     public ActorSO[] actorSO; // Array which holds the actors
 
     // Button References
-    // [SerializeField]
-    private GameObject[] optionButton; // Array which holds the buttons
+    [SerializeField]
+    private GameObject[] optionButton; // Array which holds the buttons inputed in the DialogueManger game object
     private TMP_Text[] optionButtonText;
     private GameObject optionsPanel;
 
@@ -34,12 +35,16 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typeWriterRoutine;
     private bool canContinueText = true;
 
+    // Player Freeze
+    private PlayerMovement playerMovement;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // Find Buttons
-        optionButton = GameObject.FindGameObjectsWithTag("OptionButton");
+        // Find PlayerMovement script
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
         optionsPanel = GameObject.Find("OptionsPanel");
         optionsPanel.SetActive(false);
 
@@ -69,6 +74,9 @@ public class DialogueManager : MonoBehaviour
     {
         if(dialogueActivated && Input.GetButtonDown("Interact") && canContinueText)
         {
+            // Freeze the player during conversation
+            playerMovement.enabled = false;
+
             // Cancel dialogue if there are no lines of dialogue lines remaining
             if(stepNum >= currentConversation.actors.Length)
             {
@@ -114,7 +122,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
             // Set the first button to be auto-selected
-            optionButton[1].GetComponent<Button>().Select();
+            optionButton[0].GetComponent<Button>().Select();
         }
 
         // Keep the typewriter routine from running multiple times at the same time
@@ -223,6 +231,9 @@ public class DialogueManager : MonoBehaviour
         dialogueActivated = false;
         optionsPanel.SetActive(false);
         dialogueCanvas.SetActive(false);
+
+        // Unfreeze the player after conversation
+        playerMovement.enabled = true;
     }
 
 }
