@@ -20,10 +20,11 @@ public class DialogueManager : MonoBehaviour
     private string currentSpeaker;
     private Sprite currentPortrait;
 
-    public ActorSO[] actorSO;
+    public ActorSO[] actorSO; // Array which holds the actors
 
     // Button References
-    private GameObject[] optionButton;
+    // [SerializeField]
+    private GameObject[] optionButton; // Array which holds the buttons
     private TMP_Text[] optionButtonText;
     private GameObject optionsPanel;
 
@@ -46,7 +47,7 @@ public class DialogueManager : MonoBehaviour
         optionButtonText = new TMP_Text[optionButton.Length]; // Sets array to the number of buttons it will be working with
         for(int i = 0; i < optionButton.Length; i++)
         {
-            optionButtonText[i] = optionButton[i].GetComponentInChildren<TMP_Text>(); // Assigns to option buttons 
+            optionButtonText[i] = optionButton[i].GetComponentInChildren<TMP_Text>(); // Assigns to option buttons
         }
 
         // Turn off the buttons to start
@@ -106,13 +107,14 @@ public class DialogueManager : MonoBehaviour
                 }
                 else
                 {
+                    // Debug.Log("optionText[" + i + "], currentConversation: '" + currentConversation.optionText[i] + "'");
                     optionButtonText[i].text = currentConversation.optionText[i]; // Set the button's text based on what is typed in the NPC dialogue
+                    // Debug.Log("optionButtonText[" + i + "], currentConversation: '" + optionButtonText[i].text + "'");
                     optionButton[i].SetActive(true);
                 }
-
-                // Set the first button to be auto-selected
-                optionButton[0].GetComponent<Button>().Select();
             }
+            // Set the first button to be auto-selected
+            optionButton[1].GetComponent<Button>().Select();
         }
 
         // Keep the typewriter routine from running multiple times at the same time
@@ -163,18 +165,22 @@ public class DialogueManager : MonoBehaviour
         }
         if(optionNum == 0)
         {
+            // Debug.Log("optionNum0, currentConversation: '" + currentConversation.option0 + "'");
             currentConversation = currentConversation.option0;
         }
         if(optionNum == 1)
         {
+            // Debug.Log("optionNum1, currentConversation: '" + currentConversation.option1 + "'");
             currentConversation = currentConversation.option1;
         }
         if(optionNum == 2)
         {
+            // Debug.Log("optionNum2, currentConversation: '" + currentConversation.option2 + "'");
             currentConversation = currentConversation.option2;
         }
         if(optionNum == 3)
         {
+            // Debug.Log("optionNum3, currentConversation: '" + currentConversation.option3 + "'");
             currentConversation = currentConversation.option3;
         }
 
