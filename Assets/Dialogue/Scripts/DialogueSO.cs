@@ -24,4 +24,9 @@ public class DialogueSO : ScriptableObject
     public DialogueSO option2;
     public DialogueSO option3;
 
+    [Header("Action Type")]
+    public ActionSO action0;
+    public ActionSO action1;
+    public ActionSO action2;
+    public ActionSO action3;
 }

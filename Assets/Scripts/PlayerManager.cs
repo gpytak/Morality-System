@@ -2,23 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager
 {
-    // public void Move()
-    // {
-
-    // }
-
-    // public void Talk()
-    // {
-        
-    // }
-
-    // public void Interact()
-    // {
-        
-    // }
-
     // public void Open_Game_Menu()
     // {
         

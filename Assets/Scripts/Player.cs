@@ -6,9 +6,6 @@ public class Player : MonoBehaviour
 {
     
 
-    // public void OnMove(InputValue value)
-    // {
-    //     moveDir = value.Get<Vector2>();
-    // }
+
     
 }

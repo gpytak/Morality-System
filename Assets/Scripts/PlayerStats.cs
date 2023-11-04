@@ -2,26 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats
 {
-    private string _playerName = "";
-    private float _morality = 0;
-    private float _buffer = 0;
-    private string _reputation = "";
-
-    public string playerName {
-        get{ return _playerName; }
-        set{ _playerName = value; }
-    }
+    private float morality = 0;
+    private float buffer = 0;
+    private string reputation = "";
 
     public float Morality {
-        get{ return _morality; }
-        set{ _morality = value; }
+        get{ return morality; }
+        set{ morality = value; }
     }
 
     public float Buffer {
-        get{ return _buffer; }
-        set{ _buffer = value; }
+        get{ return buffer; }
+        set{ buffer = value; }
     }
 
     public struct BufferValue {
@@ -31,8 +25,8 @@ public class PlayerStats : MonoBehaviour
     }
 
     public string Reputation {
-        get{ return _reputation; }
-        set{ _reputation = value; }
+        get{ return reputation; }
+        set{ reputation = value; }
     }
 
     public struct normalActions {

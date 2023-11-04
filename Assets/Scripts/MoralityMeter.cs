@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class MoralityMeter : MonoBehaviour
+class MoralityMeter
 {
     void UpdateMorality(int moralityValue, float actionWeight, float playerMorality)
     {

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BufferMeter : MonoBehaviour
+public class BufferMeter
 {
-    void UpdateBuffer(int moralityValue, float actionWeight, float playerMorality, float buffer, float bufferGood, float bufferNeutral, float bufferBad)
+    void UpdateBuffer(int moralityValue, float actionWeight, float playerMorality, float bufferValue, float bufferGood, float bufferNeutral, float bufferBad)
     {
         switch(moralityValue) // Check the morality value of the action
         {
@@ -43,9 +43,9 @@ public class BufferMeter : MonoBehaviour
                 break;
         }
 
-        buffer = bufferGood + bufferNeutral + bufferBad;
+        bufferValue = bufferGood + bufferNeutral + bufferBad;
 
-        if (buffer >= 20) {
+        if (bufferValue >= 20) {
             // Calculate buffer value to add to morality meter
             if (bufferGood > bufferBad && bufferGood > bufferNeutral) {
                 // Call Morality Meter with bufferGood
@@ -58,7 +58,7 @@ public class BufferMeter : MonoBehaviour
                 
             }
 
-            buffer = 0;
+            bufferValue = 0;
             bufferGood = 0;
             bufferNeutral = 0;
             bufferBad = 0;
