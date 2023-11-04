@@ -18,9 +18,9 @@ public class DialogueManager : MonoBehaviour
     private Image portrait;
     private TMP_Text dialogueText;
 
+    // ActorSO References
     private string currentSpeaker;
     private Sprite currentPortrait;
-
     public ActorSO[] actorSO; // Array which holds the actors
 
     // Button References
@@ -37,6 +37,7 @@ public class DialogueManager : MonoBehaviour
 
     // Player Freeze
     private PlayerMovement playerMovement;
+
 
 
     // Start is called before the first frame update
@@ -115,9 +116,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else
                 {
-                    // Debug.Log("optionText[" + i + "], currentConversation: '" + currentConversation.optionText[i] + "'");
                     optionButtonText[i].text = currentConversation.optionText[i]; // Set the button's text based on what is typed in the NPC dialogue
-                    // Debug.Log("optionButtonText[" + i + "], currentConversation: '" + optionButtonText[i].text + "'");
                     optionButton[i].SetActive(true);
                 }
             }
@@ -174,25 +173,41 @@ public class DialogueManager : MonoBehaviour
         if(optionNum == 0)
         {
             // Debug.Log("optionNum0, currentConversation: '" + currentConversation.option0 + "'");
+            Action(currentConversation.action0);
             currentConversation = currentConversation.option0;
         }
         if(optionNum == 1)
         {
             // Debug.Log("optionNum1, currentConversation: '" + currentConversation.option1 + "'");
+            Action(currentConversation.action1);
             currentConversation = currentConversation.option1;
         }
         if(optionNum == 2)
         {
             // Debug.Log("optionNum2, currentConversation: '" + currentConversation.option2 + "'");
+            Action(currentConversation.action2);
             currentConversation = currentConversation.option2;
         }
         if(optionNum == 3)
         {
             // Debug.Log("optionNum3, currentConversation: '" + currentConversation.option3 + "'");
+            Action(currentConversation.action3);
             currentConversation = currentConversation.option3;
         }
 
         stepNum = 0; // Reset dialogue step counter for new conversation
+    }
+
+    private void Action(ActionSO action)
+    {
+        Debug.Log("moralityValue: " + action.moralityValue);
+        Debug.Log("actionWeighte: " + action.actionWeight);
+
+        if (action.actionWeight > 0) // Check to make sure the action is not empty
+        {
+            
+        }
+
     }
 
     private IEnumerator TypeWriterEffect(string line) // Takes in line of dialogue

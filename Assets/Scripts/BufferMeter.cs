@@ -12,30 +12,30 @@ public class BufferMeter
             case 1: // Good action: add action weight to buffer
                 if (playerMorality >= 30) { // Give a bonus to the actionWeight if it aligns with the playerMorality
                     bufferGood += actionWeight * (1 + (playerMorality/100));
-                    Console.Write("Adding actionWeight to bufferGood with bonus");
+                    Debug.Log("Adding actionWeight to bufferGood with bonus");
                 } else {
                     bufferGood += actionWeight;
-                    Console.Write("Adding actionWeight to bufferGood");
+                    Debug.Log("Adding actionWeight to bufferGood");
                 }
                 break;
 
             case 0: // Neutral action: add action weight to buffer
                 if (playerMorality < 30 && playerMorality > -30) { // Give a bonus to the actionWeight if it aligns with the playerMorality
                     bufferNeutral += actionWeight * (1 + (playerMorality/100));
-                    Console.Write("Adding actionWeight to bufferNeutral with bonus");
+                    Debug.Log("Adding actionWeight to bufferNeutral with bonus");
                 } else {
                     bufferNeutral += actionWeight;
-                    Console.Write("Adding actionWeight to bufferNeutral");
+                    Debug.Log("Adding actionWeight to bufferNeutral");
                 }
                 break;
 
             case -1: // Bad action: add action weight to buffer
                 if (playerMorality <= -30) { // Give a bonus to the actionWeight if it aligns with the playerMorality
                     bufferBad += actionWeight * (1 + (playerMorality/100));
-                    Console.Write("Adding actionWeight to bufferBad with bonus");
+                    Debug.Log("Adding actionWeight to bufferBad with bonus");
                 } else {
                     bufferBad += actionWeight;
-                    Console.Write("Adding actionWeight to bufferBad");
+                    Debug.Log("Adding actionWeight to bufferBad");
                 }
                 break;
 
