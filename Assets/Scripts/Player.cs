@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
                     Debug.Log("Adding actionWeight to bufferGood");
                 }
                 break;
-
             case 0: // Neutral action: add action weight to buffer
                 if (moralityMeter < 30 && moralityMeter > -30) { // Give a bonus to the actionWeight if it aligns with the moralityMeter
                     bufferNeutral += actionWeight * (1 + (moralityMeter/100));
@@ -38,7 +37,6 @@ public class Player : MonoBehaviour
                     Debug.Log("Adding actionWeight to bufferNeutral");
                 }
                 break;
-
             case -1: // Bad action: add action weight to buffer
                 if (moralityMeter <= -30) { // Give a bonus to the actionWeight if it aligns with the moralityMeter
                     bufferBad += actionWeight * (1 + (moralityMeter/100));
@@ -48,7 +46,6 @@ public class Player : MonoBehaviour
                     Debug.Log("Adding actionWeight to bufferBad");
                 }
                 break;
-
             default:
                 break;
         }
@@ -60,14 +57,11 @@ public class Player : MonoBehaviour
         if (bufferMeter >= 20) {
             // Calculate buffer value to add to morality meter
             if (bufferGood > bufferBad && bufferGood > bufferNeutral) {
-                // Call Morality Meter with bufferGood
-
+                MoralityMeter(1, bufferGood); // Call Morality Meter with bufferGood
             } else if (bufferNeutral > bufferGood && bufferNeutral > bufferBad) {
-                // Call Morality Meter with bufferNeutral
-
-            }  else if (bufferBad > bufferGood && bufferBad > bufferNeutral) {
-                // Call Morality Meter with bufferBad
-                
+                MoralityMeter(0, bufferNeutral); // Call Morality Meter with bufferNeutral
+            } else if (bufferBad > bufferGood && bufferBad > bufferNeutral) {
+                MoralityMeter(-1, bufferBad);// Call Morality Meter with bufferBad
             }
 
             bufferMeter = 0;
@@ -82,8 +76,10 @@ public class Player : MonoBehaviour
             case 1: // Good action: add action weight to morality
                 if ((moralityMeter + actionWeight) > 100) { // Check if change would exceed 100
                     moralityMeter = 100;
+                    Debug.Log("moralityMeter at +100");
                 } else {
                     moralityMeter += actionWeight;
+                    Debug.Log("Adding actionWeight to moralityMeter towards +100");
                 }
                 break;
 
@@ -91,15 +87,19 @@ public class Player : MonoBehaviour
                 if (moralityMeter > 0){ // Check if change would exceed 0
                     if ((moralityMeter - actionWeight) < 0) {
                         moralityMeter = 0;
+                        Debug.Log("moralityMeter at 0");
                     } else {
                         moralityMeter -= actionWeight;
+                        Debug.Log("Subtracting actionWeight to moralityMeter towards 0");
                     }
                 }
                 if (moralityMeter < 0) { // Check if change would exceed 0
                     if ((moralityMeter + actionWeight) > 0) {
                         moralityMeter = 0;
+                        Debug.Log("moralityMeter at 0");
                     } else {
                         moralityMeter += actionWeight;
+                        Debug.Log("Adding actionWeight to moralityMeter towards 0");
                     }
                 }
                 break;
@@ -107,8 +107,10 @@ public class Player : MonoBehaviour
             case -1: // Bad action: remove action weight from morality
                 if ((moralityMeter - actionWeight) < -100) { // Check if change would exceed -100
                     moralityMeter = -100;
+                    Debug.Log("moralityMeter at -100");
                 } else {
                     moralityMeter -= actionWeight;
+                    Debug.Log("Subtracting actionWeight to moralityMeter towards -100");
                 }
                 break;
 
@@ -123,35 +125,4 @@ public class Player : MonoBehaviour
         
     }
 
-    // public int MoralityValue {
-    //     get{ return moralityValue; }
-    //     set{ moralityValue = value; }
-    // }
-
-    // public int bufferMeter {
-    //     get{ return bufferMeter; }
-    //     set{ bufferMeter = value; }
-    // }
-
-    // public struct bufferMeters {
-    //     public int bufferGood { get; set; } // Stores the good values in the buffer meter
-    //     public int bufferNeutral { get; set; } // Stores the neutral values in the buffer meter
-    //     public int bufferBad { get; set; } // Stores the bad values in the buffer meter
-    // }
-
-    // public string Reputation {
-    //     get{ return reputation; }
-    //     set{ reputation = value; }
-    // }
-
-    // public struct normalActions {
-    //     public int moralityValue { get; set; } // 1 = Good, 0 = Neutral, -1 = Bad
-    //     public int actionWeight { get; set; } // Measured based on the degree of the importance and permanence
-    // }
-
-    // public struct keyActions {
-    //     public int moralityValue { get; set; } // 1 = Good, 0 = Neutral, -1 = Bad
-    //     public int actionWeight { get; set; } // Measured based on the degree of the importance and permanence
-    //     public string keyEvent { get; set; } // A summary of the key action with event details and are used alongside reputations
-    // }
 }

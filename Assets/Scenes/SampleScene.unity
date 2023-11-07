@@ -903,7 +903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 459085706}
   m_Layer: 0
-  m_Name: NPCs
+  m_Name: Villagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,6 +1298,7 @@ GameObject:
   - component: {fileID: 874369980}
   - component: {fileID: 874369979}
   - component: {fileID: 874369978}
+  - component: {fileID: 874369983}
   m_Layer: 0
   m_Name: NPC1
   m_TagString: Untagged
@@ -1456,6 +1457,20 @@ Transform:
   - {fileID: 1685574147}
   m_Father: {fileID: 459085706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874369983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874369977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594cadb40186f6744963cd29ed20fc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorSO: {fileID: 11400000, guid: b35263c6f8ae3a2418f2aa07cf2d0c7a, type: 2}
+  behavior: 0
 --- !u!1 &892320613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,6 +2347,7 @@ MonoBehaviour:
   - {fileID: 1008926069}
   typingSpeed: 0.02
   playerManager: {fileID: 247158445}
+  villagerManager: {fileID: 1359550534}
 --- !u!4 &1208645571
 Transform:
   m_ObjectHideFlags: 0
@@ -2486,6 +2502,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5401845310105199258, guid: 904f8229d31e92849abde7b56d9bd194, type: 3}
   m_PrefabInstance: {fileID: 3262426874751860161}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1359550533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1359550535}
+  - component: {fileID: 1359550534}
+  m_Layer: 0
+  m_Name: VillagerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1359550534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359550533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff01300bf623a9489580cbd5dfa9515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newVillager:
+  - {fileID: 2136794433}
+  - {fileID: 874369983}
+  playerManager: {fileID: 247158445}
+  dialogueManager: {fileID: 1208645570}
+--- !u!4 &1359550535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359550533}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2856107, y: 0.7356937, z: -0.036378063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1533935144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1411725671858569461, guid: ae1d8f3261c2310449f8722be751a1bd, type: 3}
@@ -3260,6 +3325,7 @@ GameObject:
   - component: {fileID: 2136794430}
   - component: {fileID: 2136794429}
   - component: {fileID: 2136794428}
+  - component: {fileID: 2136794433}
   m_Layer: 0
   m_Name: NPC0
   m_TagString: Untagged
@@ -3418,6 +3484,20 @@ Transform:
   - {fileID: 522082952}
   m_Father: {fileID: 459085706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136794433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136794427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594cadb40186f6744963cd29ed20fc8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorSO: {fileID: 11400000, guid: 4fe35b552d9c61142b791c8d3f9b6c53, type: 2}
+  behavior: 0
 --- !u!1 &2145714502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4238,3 +4318,4 @@ SceneRoots:
   - {fileID: 459085706}
   - {fileID: 1208645571}
   - {fileID: 247158446}
+  - {fileID: 1359550535}

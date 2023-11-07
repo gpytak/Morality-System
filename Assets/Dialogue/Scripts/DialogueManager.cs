@@ -41,6 +41,10 @@ public class DialogueManager : MonoBehaviour
     // PlayerManager Reference
     public PlayerManager playerManager;
 
+    // VillagerManager Reference
+    public VillagerManager villagerManager;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -154,6 +158,7 @@ public class DialogueManager : MonoBehaviour
                 if(actorSO[i].name == currentConversation.actors[stepNum].ToString())
                 {
                     currentSpeaker = actorSO[i].actorName;
+                    currentPortrait = actorSO[i].actorPortrait;
                     currentPortrait = actorSO[i].actorPortrait;
                 }
             }

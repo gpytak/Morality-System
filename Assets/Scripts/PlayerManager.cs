@@ -17,15 +17,20 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("actionWeight: " + action.actionWeight);
         if (action.actionWeight > 0) // Check to make sure the action is not empty
         {
-            if(action.keyAction) // Determine if the action is normal or key
-            { // Key action
+            Debug.Log("(Before) bufferMeter: " + newPlayer.bufferMeter);
+            Debug.Log("(Before) moralityMeter: " + newPlayer.moralityMeter);
+            // Determine if the action is normal or key
+            if(action.keyAction) // Key action
+            {
                 newPlayer.MoralityMeter(action.moralityValue, action.actionWeight);
-                newPlayer.Reputation(action.keyEvent);
+                // newPlayer.Reputation(action.keyEvent);
             }
-            else
-            { // Normal action
+            else // Normal action
+            {
                 newPlayer.BufferMeter(action.moralityValue, action.actionWeight);
             }
+            Debug.Log("(After) bufferMeter: " + newPlayer.bufferMeter);
+            Debug.Log("(After) moralityMeter: " + newPlayer.moralityMeter);
         }
     }
 
