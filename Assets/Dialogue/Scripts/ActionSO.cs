@@ -6,8 +6,8 @@ using UnityEngine;
 public class ActionSO : ScriptableObject
 {
     [Header("Action Values")]
-    public string moralityValue; // 1 = Good, 0 = Neutral, -1 = Bad
-    public float actionWeight; // Measured based on the degree of the importance and permanence
+    public int moralityValue; // 1 = Good, 0 = Neutral, -1 = Bad
+    public int actionWeight; // Measured based on the degree of the importance and permanence
 
     [Header("Key Actions")]
     public bool keyAction; // Determines if the action is a key action

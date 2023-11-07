@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     // The NPC Dialogue we are currently stepping through
-    private DialogueSO currentConversation; // The current conversation found in the DialogueHandler in NPC
+    public DialogueSO currentConversation; // The current conversation found in the DialogueHandler in NPC
     private int stepNum; // Tracks which step in the dialogue we're in
     private bool dialogueActivated; // Lets Update() know when to display text
 
@@ -37,8 +37,9 @@ public class DialogueManager : MonoBehaviour
 
     // Player Freeze
     private PlayerMovement playerMovement;
-
-
+    
+    // PlayerManager Reference
+    public PlayerManager playerManager;
 
     // Start is called before the first frame update
     void Start()
@@ -172,42 +173,25 @@ public class DialogueManager : MonoBehaviour
         }
         if(optionNum == 0)
         {
-            // Debug.Log("optionNum0, currentConversation: '" + currentConversation.option0 + "'");
-            Action(currentConversation.action0);
+            playerManager.Action(currentConversation.action0); // Passes action chosen to PlayerManager
             currentConversation = currentConversation.option0;
         }
         if(optionNum == 1)
         {
-            // Debug.Log("optionNum1, currentConversation: '" + currentConversation.option1 + "'");
-            Action(currentConversation.action1);
+            playerManager.Action(currentConversation.action1); // Passes action chosen to PlayerManager
             currentConversation = currentConversation.option1;
         }
         if(optionNum == 2)
         {
-            // Debug.Log("optionNum2, currentConversation: '" + currentConversation.option2 + "'");
-            Action(currentConversation.action2);
+            playerManager.Action(currentConversation.action2); // Passes action chosen to PlayerManager
             currentConversation = currentConversation.option2;
         }
         if(optionNum == 3)
         {
-            // Debug.Log("optionNum3, currentConversation: '" + currentConversation.option3 + "'");
-            Action(currentConversation.action3);
+            playerManager.Action(currentConversation.action3); // Passes action chosen to PlayerManager
             currentConversation = currentConversation.option3;
         }
-
         stepNum = 0; // Reset dialogue step counter for new conversation
-    }
-
-    private void Action(ActionSO action)
-    {
-        Debug.Log("moralityValue: " + action.moralityValue);
-        Debug.Log("actionWeighte: " + action.actionWeight);
-
-        if (action.actionWeight > 0) // Check to make sure the action is not empty
-        {
-            
-        }
-
     }
 
     private IEnumerator TypeWriterEffect(string line) // Takes in line of dialogue
@@ -227,7 +211,6 @@ public class DialogueManager : MonoBehaviour
         }
         canContinueText = true;
     }
-
 
     public void InitiateDialogue(NPCDialogue npcDialogue) // Used in NPCDialogue.cs
     {
@@ -250,7 +233,6 @@ public class DialogueManager : MonoBehaviour
         // Unfreeze the player after conversation
         playerMovement.enabled = true;
     }
-
 }
 
 public enum DialogueActors // Place in actors
