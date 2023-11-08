@@ -13,12 +13,12 @@ public class PlayerManager : MonoBehaviour
 
     public void Action(ActionSO action)
     {
-        Debug.Log("moralityValue: " + action.moralityValue);
-        Debug.Log("actionWeight: " + action.actionWeight);
+        // Debug.Log("moralityValue: " + action.moralityValue);
+        // Debug.Log("actionWeight: " + action.actionWeight);
         if (action.actionWeight > 0) // Check to make sure the action is not empty
         {
-            Debug.Log("(Before) bufferMeter: " + newPlayer.bufferMeter);
-            Debug.Log("(Before) moralityMeter: " + newPlayer.moralityMeter);
+            // Debug.Log("(Before) bufferMeter: " + newPlayer.bufferMeter);
+            // Debug.Log("(Before) moralityMeter: " + newPlayer.moralityMeter);
             // Determine if the action is normal or key
             if(action.keyAction) // Key action
             {
@@ -29,10 +29,11 @@ public class PlayerManager : MonoBehaviour
             {
                 newPlayer.BufferMeter(action.moralityValue, action.actionWeight);
             }
-            Debug.Log("(After) bufferMeter: " + newPlayer.bufferMeter);
-            Debug.Log("(After) moralityMeter: " + newPlayer.moralityMeter);
+            // Debug.Log("(After) bufferMeter: " + newPlayer.bufferMeter);
+            // Debug.Log("(After) moralityMeter: " + newPlayer.moralityMeter);
         }
     }
+
 
     // public void Game_Menu()
     // {

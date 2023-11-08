@@ -23,12 +23,12 @@ public class VillagerManager : MonoBehaviour
             if (i != 0 && (newVillager[i-1].behavior == -1 || newVillager[i-1].behavior == 1))
                 newVillager[i].behavior = 0;
             else
-                newVillager[i].behavior = Random.Range(-1, 1);
+                newVillager[i].behavior = Random.Range(-1, 2);
             
             Debug.Log(newVillager[i].actorSO.actorName + ": " + newVillager[i].behavior);
         }
-
     }
+
 
 
 }

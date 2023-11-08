@@ -8,6 +8,4 @@ public class Villager : MonoBehaviour
     
     public int behavior = 0; // Randomly generated behavior of the villager
 
-
-
 }

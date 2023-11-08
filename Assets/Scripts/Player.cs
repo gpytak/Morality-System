@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int playerMorality = 0; // The morality of the player; 1 = Good, 0 = Neutral, -1 = Bad
+
     public int bufferMeter = 0; // The value of the buffer meter
     public int moralityMeter = 0; // The value of the morality meter
 
@@ -22,28 +24,28 @@ public class Player : MonoBehaviour
             case 1: // Good action: add action weight to buffer
                 if (moralityMeter >= 30) { // Give a bonus to the actionWeight if it aligns with the moralityMeter
                     bufferGood += actionWeight * (1 + (moralityMeter/100));
-                    Debug.Log("Adding actionWeight to bufferGood with bonus");
+                    // Debug.Log("Adding actionWeight to bufferGood with bonus");
                 } else {
                     bufferGood += actionWeight;
-                    Debug.Log("Adding actionWeight to bufferGood");
+                    // Debug.Log("Adding actionWeight to bufferGood");
                 }
                 break;
             case 0: // Neutral action: add action weight to buffer
                 if (moralityMeter < 30 && moralityMeter > -30) { // Give a bonus to the actionWeight if it aligns with the moralityMeter
                     bufferNeutral += actionWeight * (1 + (moralityMeter/100));
-                    Debug.Log("Adding actionWeight to bufferNeutral with bonus");
+                    // Debug.Log("Adding actionWeight to bufferNeutral with bonus");
                 } else {
                     bufferNeutral += actionWeight;
-                    Debug.Log("Adding actionWeight to bufferNeutral");
+                    // Debug.Log("Adding actionWeight to bufferNeutral");
                 }
                 break;
             case -1: // Bad action: add action weight to buffer
                 if (moralityMeter <= -30) { // Give a bonus to the actionWeight if it aligns with the moralityMeter
                     bufferBad += actionWeight * (1 + (moralityMeter/100));
-                    Debug.Log("Adding actionWeight to bufferBad with bonus");
+                    // Debug.Log("Adding actionWeight to bufferBad with bonus");
                 } else {
                     bufferBad += actionWeight;
-                    Debug.Log("Adding actionWeight to bufferBad");
+                    // Debug.Log("Adding actionWeight to bufferBad");
                 }
                 break;
             default:
@@ -76,10 +78,10 @@ public class Player : MonoBehaviour
             case 1: // Good action: add action weight to morality
                 if ((moralityMeter + actionWeight) > 100) { // Check if change would exceed 100
                     moralityMeter = 100;
-                    Debug.Log("moralityMeter at +100");
+                    // Debug.Log("moralityMeter at +100");
                 } else {
                     moralityMeter += actionWeight;
-                    Debug.Log("Adding actionWeight to moralityMeter towards +100");
+                    // Debug.Log("Adding actionWeight to moralityMeter towards +100");
                 }
                 break;
 
@@ -87,19 +89,19 @@ public class Player : MonoBehaviour
                 if (moralityMeter > 0){ // Check if change would exceed 0
                     if ((moralityMeter - actionWeight) < 0) {
                         moralityMeter = 0;
-                        Debug.Log("moralityMeter at 0");
+                        // Debug.Log("moralityMeter at 0");
                     } else {
                         moralityMeter -= actionWeight;
-                        Debug.Log("Subtracting actionWeight to moralityMeter towards 0");
+                        // Debug.Log("Subtracting actionWeight to moralityMeter towards 0");
                     }
                 }
                 if (moralityMeter < 0) { // Check if change would exceed 0
                     if ((moralityMeter + actionWeight) > 0) {
                         moralityMeter = 0;
-                        Debug.Log("moralityMeter at 0");
+                        // Debug.Log("moralityMeter at 0");
                     } else {
                         moralityMeter += actionWeight;
-                        Debug.Log("Adding actionWeight to moralityMeter towards 0");
+                        // Debug.Log("Adding actionWeight to moralityMeter towards 0");
                     }
                 }
                 break;
@@ -107,15 +109,26 @@ public class Player : MonoBehaviour
             case -1: // Bad action: remove action weight from morality
                 if ((moralityMeter - actionWeight) < -100) { // Check if change would exceed -100
                     moralityMeter = -100;
-                    Debug.Log("moralityMeter at -100");
+                    // Debug.Log("moralityMeter at -100");
                 } else {
                     moralityMeter -= actionWeight;
-                    Debug.Log("Subtracting actionWeight to moralityMeter towards -100");
+                    // Debug.Log("Subtracting actionWeight to moralityMeter towards -100");
                 }
                 break;
 
             default:
                 break;
+        }
+
+        // Set the player's morality meter; 1 = Good, 0 = Neutral, -1 = Bad
+        if (moralityMeter >= 30) {
+            playerMorality = 1;
+        }
+        else if (moralityMeter < 30 && moralityMeter > -30) {
+            playerMorality = 0;
+        }
+        else if (moralityMeter <= -30) {
+            playerMorality = -1;
         }
     }
 

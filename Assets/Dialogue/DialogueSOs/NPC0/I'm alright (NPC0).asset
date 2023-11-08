@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
-  m_Name: Investigate
+  m_Name: I'm alright (NPC0)
   m_EditorClassIdentifier: 
-  actors: 0000000005000000
+  actors: 0100000001000000
   randomActorName: 
   randomActorPortrait: {fileID: 0}
   dialogue:
-  - Have you seen any other travelers pass by here recently?
+  - I'm doing alright, thanks for asking.
+  - Is there anything I can help you with?
   optionText: []
-  option0: {fileID: 11400000, guid: 2670b1242a6b217428b17b1a9f7a38a4, type: 2}
-  option1: {fileID: 11400000, guid: 2670b1242a6b217428b17b1a9f7a38a4, type: 2}
-  option2: {fileID: 11400000, guid: 7f9600561c352dc4da30e47b7a8f3188, type: 2}
-  option3: {fileID: 11400000, guid: 9d47c9f90a5c4704ba9051e6bebe6711, type: 2}
+  option0: {fileID: 11400000, guid: 6051c7f295fdef846afee3ad338aabfb, type: 2}
+  option1: {fileID: 0}
+  option2: {fileID: 11400000, guid: 862aec5c65014a449ae76a29c399da6b, type: 2}
+  option3: {fileID: 0}
   action0: {fileID: 0}
   action1: {fileID: 0}
   action2: {fileID: 0}
