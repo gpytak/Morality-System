@@ -22,7 +22,8 @@ public class NPCDialogue : MonoBehaviour
         speechBubbleRenderer.enabled = false;
     }
 
-    private void OnTriggerStay2D(Collider2D collision) // Called as long as a Collider2D is detected within its trigger range
+    // Called as long as a Collider2D is detected within its trigger range
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player" && !dialogueInitiated)
         {
