@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public string reputationTitle = "Commoner"; // Portray the player based on the reputation value
     public int reputationValue = 0; // Equal to the state of the morality meter
 
-    public string[] headline;
+    public string headline = "";
 
 
     public void BufferMeter(int moralityValue, int actionWeight) {
@@ -132,10 +132,9 @@ public class Player : MonoBehaviour
         }
     }
 
-
     public void Reputation(string keyEvent)
     {
-        
+        headline = keyEvent;
     }
 
 }
