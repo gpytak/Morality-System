@@ -6,15 +6,7 @@ using UnityEngine.EventSystems;
 public class PlayerMovement : MonoBehaviour
 {
     // Player Animation References
-    // [SerializeField]
-    // public AnimatorController[] animatorController; // Walk = 0, Idle = 1
     private Animator playerAnimator;
-            
-    // Find Player AnimatorController
-    // playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
-
-    // Set Player to walking
-    // playerAnimator = animatorController[0];
 
     public Rigidbody2D playerRb; // Player rigid body
     public SpriteRenderer spriteRenderer;
@@ -33,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        // Find the Player Animator
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
     }
 
@@ -41,11 +34,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         input = Input.GetAxisRaw("Horizontal"); // Inverses character
-        if (input < 0) {
+        if (input < 0)
             spriteRenderer.flipX = true;
-        } else if (input > 0) {
+        else if (input > 0)
             spriteRenderer.flipX = false;
-        }
+        
 
         isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer); // Returns T/F if player is on ground
 
@@ -67,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Jump")) // If jump is held
             isJumping = false;
 
-        if(Input.GetButtonDown("Horizontal")) // Triggers walk animation 
+        if(Input.GetButtonDown("Horizontal")) // Triggers walk animation
             playerAnimator.Play("hat-man-walk");
         
         if (!Input.anyKey) // Triggers idle animation 

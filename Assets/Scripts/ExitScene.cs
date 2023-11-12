@@ -17,13 +17,24 @@ public class ExitScene : MonoBehaviour
     [SerializeField]
     private GameObject[] exitOptionButton; // Array which holds the buttons inputed in the DialogueManger game object
 
+    // Player Freeze
+    private PlayerMovement playerMovement;
+
+    // Player Animation References
+    private Animator playerAnimator;
+
     void Start()
     {
+        // Find PlayerMovement script
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
+        // Find the Player Animator
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+
         exitCanvas.SetActive(false);
         exitOptionsPanel.SetActive(false);
         exitOptionButton[0].SetActive(false);
         exitOptionButton[1].SetActive(false);
-        exitOptionButton[0].GetComponent<Button>().Select();
     }
 
     // Called as long as a Collider2D is detected within its trigger range
@@ -35,7 +46,10 @@ public class ExitScene : MonoBehaviour
             exitOptionsPanel.SetActive(true);
             exitOptionButton[0].SetActive(true);
             exitOptionButton[1].SetActive(true);
+            exitOptionButton[0].GetComponent<Button>().Select();
             promptInitiated = true;
+            playerMovement.enabled = false;
+            playerAnimator.Play("hat-man-idle");
         }
     }
 
@@ -45,7 +59,6 @@ public class ExitScene : MonoBehaviour
         {
             exitCanvas.SetActive(false);
             exitOptionsPanel.SetActive(false);
-            exitOptionButton[0].GetComponent<Button>().Select();
             promptInitiated = false;
         }
     }
@@ -59,9 +72,11 @@ public class ExitScene : MonoBehaviour
         if(optionNum == 0)
         {
             exitCanvas.SetActive(false);
+            playerMovement.enabled = true;
         }
         if(optionNum == 1)
         {
+            playerMovement.enabled = true;
             promptInitiated = false;
             SceneManager.LoadScene("TravelScene");
         }
