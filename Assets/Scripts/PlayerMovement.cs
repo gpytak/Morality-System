@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Player Animation References
+    // [SerializeField]
+    // public AnimatorController[] animatorController; // Walk = 0, Idle = 1
+    // public Animator playerAnimator;
+            
+    // Find Player AnimatorController
+    // playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+
+    // Set Player to walking
+    // playerAnimator = animatorController[0];
+
+    
+
     public Rigidbody2D playerRb; // Player rigid body
     public SpriteRenderer spriteRenderer;
     public float speed;

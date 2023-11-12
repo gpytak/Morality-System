@@ -27,7 +27,7 @@ MonoBehaviour:
   option1: {fileID: 11400000, guid: 656241ec2f1e73b43b8b115a8c96ea27, type: 2}
   option2: {fileID: 11400000, guid: 6051c7f295fdef846afee3ad338aabfb, type: 2}
   option3: {fileID: 11400000, guid: 862aec5c65014a449ae76a29c399da6b, type: 2}
-  action0: {fileID: 11400000, guid: 7b430f3e233c1a64bbc269a7bc0c566d, type: 2}
+  action0: {fileID: 11400000, guid: 175e2dab66d2e174496c419e66d0ea61, type: 2}
   action1: {fileID: 11400000, guid: 2ba234ccc11d0aa4fb2aec1383b61b80, type: 2}
   action2: {fileID: 11400000, guid: 252fa48a20663364f8cf9bfea99ec280, type: 2}
   action3: {fileID: 11400000, guid: 83ce917d9a979cc45ac4fd573bf78e4a, type: 2}

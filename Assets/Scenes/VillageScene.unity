@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 49858730}
   - component: {fileID: 49858731}
   - component: {fileID: 49858733}
+  - component: {fileID: 49858734}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -396,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 49858723}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.65, y: -1.58, z: 0}
+  m_LocalPosition: {x: -3, y: -1.58, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -540,9 +541,22 @@ MonoBehaviour:
   bufferGood: 0
   bufferNeutral: 0
   bufferBad: 0
-  reputationTitle: Commoner
+  reputationTitle: Traveler
   reputationValue: 0
-  headline: []
+  headline: Headline
+--- !u!114 &49858734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49858723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48b1f706950e1547a3b7becbb33f3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIndex: 0
 --- !u!1 &117832829
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,8 +4902,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NPC
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 697141fa285bc2149bbcf0fb54a866fc, type: 2}
-  m_sharedMaterial: {fileID: -2555093522412194514, guid: 697141fa285bc2149bbcf0fb54a866fc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77906e0b5074c06478470a18a62f05f9, type: 2}
+  m_sharedMaterial: {fileID: -808450572187845471, guid: 77906e0b5074c06478470a18a62f05f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -13,10 +13,10 @@ public class Player : MonoBehaviour
     public int bufferNeutral = 0; // Stores the neutral values in the buffer meter
     public int bufferBad = 0; // Stores the bad values in the buffer meter
 
-    public string reputationTitle = "Commoner"; // Portray the player based on the reputation value
+    public string reputationTitle = "Traveler"; // Portray the player based on the reputation value
     public int reputationValue = 0; // Equal to the state of the morality meter
 
-    public string headline = "";
+    public string headline = "Headline";
 
 
     public void BufferMeter(int moralityValue, int actionWeight) {

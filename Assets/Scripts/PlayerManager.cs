@@ -19,7 +19,8 @@ public class PlayerManager : MonoBehaviour
         {
             // Debug.Log("(Before) bufferMeter: " + newPlayer.bufferMeter);
             // Debug.Log("(Before) moralityMeter: " + newPlayer.moralityMeter);
-            // Determine if the action is normal or key
+            
+            // Determine if the action is a normal or key action
             if(action.keyAction) // Key action
             {
                 newPlayer.MoralityMeter(action.moralityValue, action.actionWeight);

@@ -15,4 +15,4 @@ MonoBehaviour:
   moralityValue: -1
   actionWeight: 10
   keyAction: 1
-  keyEvent: 
+  keyEvent: Test Key Bad Action
