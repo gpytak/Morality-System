@@ -10,6 +10,11 @@ public class PlayerManager : MonoBehaviour
     // DialogueManager Reference
     public DialogueManager dialogueManager;
 
+    void Start()
+    {
+        // Find the Player script
+        newPlayer = GameObject.Find("Player").GetComponent<Player>();
+    }
 
     public void Action(ActionSO action)
     {
