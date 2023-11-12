@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Player Animation References
     // [SerializeField]
     // public AnimatorController[] animatorController; // Walk = 0, Idle = 1
-    // public Animator playerAnimator;
+    private Animator playerAnimator;
             
     // Find Player AnimatorController
     // playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
 
     // Set Player to walking
     // playerAnimator = animatorController[0];
-
-    
 
     public Rigidbody2D playerRb; // Player rigid body
     public SpriteRenderer spriteRenderer;
@@ -31,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
     public float jumpTime = 0.35f;
     public float jumpTimeCounter;
     private bool isJumping;
+
+    void Start()
+    {
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+    }
+
     
     // Update is called once per frame
     void Update()
@@ -59,9 +64,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Jump")) { // If jump is held
+        if (Input.GetButton("Jump")) // If jump is held
             isJumping = false;
-        }
+
+        if(Input.GetButtonDown("Horizontal")) // Triggers walk animation 
+            playerAnimator.Play("hat-man-walk");
+        
+        if (!Input.anyKey) // Triggers idle animation 
+            playerAnimator.Play("hat-man-idle");
     }
 
     void FixedUpdate()
