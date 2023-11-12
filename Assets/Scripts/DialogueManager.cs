@@ -104,15 +104,7 @@ public class DialogueManager : MonoBehaviour
 
     void PlayDialogue()
     {
-        // If it's a random NPC
-        if(currentConversation.actors[stepNum] == DialogueActors.Random)
-        {
-            SetActorInfo(false);
-        }
-        else // If it's a recurring character
-        {
-            SetActorInfo(true);
-        }
+        SetActorInfo(true);
         
         // Display Dialogue
         actor.text = currentSpeaker;
@@ -211,8 +203,8 @@ public class DialogueManager : MonoBehaviour
 
     public void Continue(int playerMorality, int villagerBehavior)
     {
-        Debug.Log("playerMorality: " + playerMorality);
-        Debug.Log("villagerBehavior: " + villagerBehavior);
+        // Debug.Log("playerMorality: " + playerMorality);
+        // Debug.Log("villagerBehavior: " + villagerBehavior);
 
         // If the player is good and the villager is good
         switch(playerMorality){
@@ -288,9 +280,9 @@ public class DialogueManager : MonoBehaviour
 public enum DialogueActors // Place in actors
 {
     Player,
-    NPC0,
-    NPC1,
-    Random, // Select this for any non-recurring characters.
+    Henry,
+    Alice,
+    Joseph,
     Branch,  // Selecting this will tell the script that it needs to show the option buttons.
     Continue, // Selecting this will tell the script that it needs to choose the next conversation.
     End // Selecting this will tell the script to end the conversation

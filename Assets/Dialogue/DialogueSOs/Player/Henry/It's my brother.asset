@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
+  m_Name: It's my brother
+  m_EditorClassIdentifier: 
+  actors: 00000000
+  randomActorName: 
+  randomActorPortrait: {fileID: 0}
+  dialogue:
+  - My brother went missing and I've been searching for him.
+  - Could you tell me where he went?
+  optionText: []
+  option0: {fileID: 0}
+  option1: {fileID: 0}
+  option2: {fileID: 11400000, guid: 7f9600561c352dc4da30e47b7a8f3188, type: 2}
+  option3: {fileID: 0}
+  action0: {fileID: 0}
+  action1: {fileID: 0}
+  action2: {fileID: 0}
+  action3: {fileID: 0}

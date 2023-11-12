@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
+  m_Name: I've seen a traveler
+  m_EditorClassIdentifier: 
+  actors: 010000000100000004000000
+  randomActorName: 
+  randomActorPortrait: {fileID: 0}
+  dialogue:
+  - Yeah, I've seen another traveler around here recently.
+  - Why do you ask?
+  optionText:
+  - It's my brother.
+  - Mind your business.
+  - Nevermind.
+  - Nevermind.
+  option0: {fileID: 11400000, guid: d30fcaa195b09d648a66026ed1904a8f, type: 2}
+  option1: {fileID: 11400000, guid: 656241ec2f1e73b43b8b115a8c96ea27, type: 2}
+  option2: {fileID: 11400000, guid: e13813a3c1eb59941943e292199bacd1, type: 2}
+  option3: {fileID: 11400000, guid: e13813a3c1eb59941943e292199bacd1, type: 2}
+  action0: {fileID: 0}
+  action1: {fileID: 0}
+  action2: {fileID: 0}
+  action3: {fileID: 0}
