@@ -28,7 +28,4 @@ public class VillagerManager : MonoBehaviour
             Debug.Log(newVillager[i].actorSO.actorName + ": " + newVillager[i].behavior);
         }
     }
-
-
-
 }
