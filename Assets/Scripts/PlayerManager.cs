@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
             if(action.keyAction) // Key action
             {
                 newPlayer.MoralityMeter(action.moralityValue, action.actionWeight);
-                newPlayer.Reputation(action.keyEvent);
+                newPlayer.Reputation(action.moralityValue, action.keyEvent);
             }
             else // Normal action
                 newPlayer.BufferMeter(action.moralityValue, action.actionWeight);

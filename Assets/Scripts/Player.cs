@@ -105,9 +105,39 @@ public class Player : MonoBehaviour
             playerMorality = -1;
     }
 
-    public void Reputation(string keyEvent)
+    public void Reputation(int moralityValue, string keyEvent)
     {
-        headline = keyEvent;
-    }
+        // Set the headline to the key event performed by the player.
+        if(moralityValue == playerMorality)
+            headline = keyEvent;
 
+        if (moralityMeter > -30 && moralityMeter < 30)
+        {
+            reputationTitle = "Traveler";
+        }
+        else if (moralityMeter >= 30 && moralityMeter < 60)
+        {
+            reputationTitle = "Honorable";
+        }
+        else if (moralityMeter >= 60 && moralityMeter < 90)
+        {
+            reputationTitle = "Folkhero";
+        }
+        else if (moralityMeter >= 90)
+        {
+            reputationTitle = "Hero";
+        }
+        else if (moralityMeter <= -30 && moralityMeter > -60)
+        {
+            reputationTitle = "Crook";
+        }
+        else if (moralityMeter <= -60 && moralityMeter > -90)
+        {
+            reputationTitle = "Outlaw";
+        }
+        else if (moralityMeter < -90)
+        {
+            reputationTitle = "Villian";
+        }
+    }
 }
