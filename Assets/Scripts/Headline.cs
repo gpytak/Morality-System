@@ -44,10 +44,10 @@ public class Headline : MonoBehaviour
         newPlayer = GameObject.Find("Player").GetComponent<Player>();
 
         // Setup the UI and button
-        if (newPlayer.headline != "")
+        if (newPlayer.headline != "Headline")
             bodyText.text = newPlayer.reputationTitle + " " + newPlayer.headline;
         else
-            bodyText.text = "No news";
+            bodyText.text = newPlayer.reputationTitle + " recently seen in village.";
         
         newsPanel.SetActive(false);
         NewsButton.SetActive(false);

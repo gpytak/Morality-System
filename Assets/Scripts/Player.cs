@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     public string reputationTitle = "Traveler"; // Portray the player based on the reputation value
     public int reputationValue = 0; // Equal to the state of the morality meter
-    public string headline = ""; // Stores key action's keyEvent
+    public string headline = "Headline"; // Stores key action's keyEvent
 
     public void BufferMeter(int moralityValue, int actionWeight) {
         // Check the morality value of the action

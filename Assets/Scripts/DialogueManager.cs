@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
@@ -86,16 +87,49 @@ public class DialogueManager : MonoBehaviour
             // Cancel dialogue if there are no lines of dialogue lines remaining
             if(stepNum >= currentConversation.actors.Length)
                 TurnOffDialogue();
-            else if(currentConversation.actors[stepNum] == DialogueActors.Continue) { // If there is a continue
+            else if(currentConversation.actors[stepNum] == DialogueActors.Continue) // If there is a Continue
+            {
                 // Find the actor's behavior
                 for (int i = 0; i < villagerManager.newVillager.Length; i++)
                 {
                     if (villagerManager.newVillager[i].actorSO.actorName == currentConversation.option0.actors[0].ToString())
                     {
-                        Continue(playerManager.newPlayer.playerMorality, villagerManager.newVillager[i].behavior); // Call Continue with player morality and villager behavior
+                        Continue(playerManager.newPlayer.playerMorality, villagerManager.newVillager[i]); // Call Continue with player morality and the villager
                         break;
                     }
                 }
+            }
+            else if(currentConversation.actors[stepNum] == DialogueActors.TaskStart) // If there is a TaskStart
+            {
+                // Find the actor
+                for (int i = 0; i < villagerManager.newVillager.Length; i++)
+                {
+                    if (villagerManager.newVillager[i].actorSO.actorName == currentConversation.actors[stepNum-1].ToString())
+                    {
+                        // Set villager's task start to true
+                        villagerManager.newVillager[i].taskStarted = true;
+                        break;
+                    }
+                }
+                
+                if((stepNum + 1) <= currentConversation.actors.Length)
+                    stepNum += 1;
+            }
+            else if(currentConversation.actors[stepNum] == DialogueActors.TaskComplete) // If there is a TaskComplete
+            {
+                // Find the actor
+                for (int i = 0; i < villagerManager.newVillager.Length; i++)
+                {
+                    if (villagerManager.newVillager[i].actorSO.actorName == currentConversation.actors[stepNum-1].ToString())
+                    {
+                        // Set villager's task complete to true
+                        villagerManager.newVillager[i].taskComplete = true;
+                        break;
+                    }
+                }
+
+                if((stepNum + 1) <= currentConversation.actors.Length)
+                    stepNum += 1;
             }
             else // Continue dialogue
                 PlayDialogue();
@@ -201,38 +235,50 @@ public class DialogueManager : MonoBehaviour
         stepNum = 0; // Reset dialogue step counter for new conversation
     }
 
-    public void Continue(int playerMorality, int villagerBehavior)
+    public void Continue(int playerMorality, Villager villager)
     {
         // Debug.Log("playerMorality: " + playerMorality);
         // Debug.Log("villagerBehavior: " + villagerBehavior);
 
-        // If the player is good and the villager is good
-        switch(playerMorality){
-             case 1: // Player is good
-                if(villagerBehavior == 0 || villagerBehavior == 1)
-                    currentConversation = currentConversation.option0; // Sets good conversation
-                else if (villagerBehavior == -1)
-                    currentConversation = currentConversation.option2; // Sets bad conversation
-                else
-                    currentConversation = currentConversation.option3; // Ends conversation
-                break;
+        if(!villager.taskStarted)
+        {
+            switch(playerMorality) // option0 = good/neutral, option1 = bad, option2 = empty
+            {
+                case 1: // Player is good
+                    if(villager.behavior == -1)
+                        currentConversation = currentConversation.option1; // Sets bad conversation
+                    else if (villager.behavior == 0 || villager.behavior == 1)
+                        currentConversation = currentConversation.option0; // Sets good/neutral conversation
+                    else
+                        currentConversation = currentConversation.option2; // Ends conversation
+                    break;
 
-             case 0: // Player is neutral
-                    currentConversation = currentConversation.option1; // Sets neutral conversation
-                break;
+                case 0: // Player is neutral
+                        currentConversation = currentConversation.option0; // Sets good/neutral conversation
+                    break;
 
-             case -1: // Player is bad
-                if(villagerBehavior == 0 || villagerBehavior == -1)
-                    currentConversation = currentConversation.option1; // Sets neutral conversation
-                else if (villagerBehavior == 1)
-                    currentConversation = currentConversation.option2; // Sets bad conversation
-                else
-                    currentConversation = currentConversation.option3; // Ends conversation
-                break;
+                case -1: // Player is bad
+                    if(villager.behavior == 1)
+                        currentConversation = currentConversation.option2; // Sets empty conversation
+                    else if (villager.behavior == 0 || villager.behavior == -1)
+                        currentConversation = currentConversation.option0; // Sets good/neutral conversation
+                    else
+                        currentConversation = currentConversation.option2; // Ends conversation
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
+        else
+        {
+            // Check if the task if finished
+            if(!villager.taskFinished) // If the task is not finished
+                currentConversation = currentConversation.option0;
+            else // If the task is finished
+                currentConversation = currentConversation.option1;
+        }
+
         stepNum = 0; // Reset dialogue step counter for new conversation
     }
 
@@ -256,9 +302,20 @@ public class DialogueManager : MonoBehaviour
 
     public void InitiateDialogue(NPCDialogue npcDialogue) // Used in NPCDialogue.cs
     {
-        // The array we are currently stepping through
-        currentConversation = npcDialogue.conversation[0];
-        // Debug.Log("Started conversation: " + currentConversation);
+        for (int i = 0; i < villagerManager.newVillager.Length; i++)
+        {
+            if (villagerManager.newVillager[i].actorSO.actorName == npcDialogue.conversation[0].actors[0].ToString())
+            {
+                // The array we are currently stepping through
+                if (villagerManager.newVillager[i].taskStarted && !villagerManager.newVillager[i].taskComplete) // Returning with task
+                    currentConversation = npcDialogue.conversation[1];
+                else if (villagerManager.newVillager[i].taskComplete) // Finished task
+                    currentConversation = npcDialogue.conversation[2];
+                else // First time meeting
+                    currentConversation = npcDialogue.conversation[0];
+                break;
+            }
+        }
 
         dialogueActivated = true;
     }
@@ -266,8 +323,6 @@ public class DialogueManager : MonoBehaviour
     public void TurnOffDialogue() // Triggered when leaving NPC in NPCDialogue.cs
     {
         stepNum = 0;
-        // Debug.Log("Ended conversation. Reset the step to " + stepNum);
-
         dialogueActivated = false;
         optionsPanel.SetActive(false);
         dialogueCanvas.SetActive(false);
@@ -285,5 +340,7 @@ public enum DialogueActors // Place in actors
     Joseph,
     Branch,  // Selecting this will tell the script that it needs to show the option buttons.
     Continue, // Selecting this will tell the script that it needs to choose the next conversation.
+    TaskStart, // Selecting this will tell the script that the task has been started.
+    TaskComplete, // Selecting this will tell the script that the task has been complete.
     End // Selecting this will tell the script to end the conversation
 };

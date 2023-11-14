@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
+  m_Name: Help me first
+  m_EditorClassIdentifier: 
+  actors: 01000000010000000600000004000000
+  randomActorName: 
+  randomActorPortrait: {fileID: 0}
+  dialogue:
+  - I'll tell you, but I'm going to need you to do me a favor first.
+  - Give these supplies to Alice down yonder and then return to me. Deal?
+  optionText:
+  - Deal.
+  - Just tell me.
+  - Nevermind.
+  option0: {fileID: 11400000, guid: c5edc53ee9c45de46929057009927035, type: 2}
+  option1: {fileID: 11400000, guid: f7a76928779285f48aa91adebad0420c, type: 2}
+  option2: {fileID: 11400000, guid: e13813a3c1eb59941943e292199bacd1, type: 2}
+  option3: {fileID: 0}
+  action0: {fileID: 11400000, guid: 7b430f3e233c1a64bbc269a7bc0c566d, type: 2}
+  action1: {fileID: 11400000, guid: 2ba234ccc11d0aa4fb2aec1383b61b80, type: 2}
+  action2: {fileID: 11400000, guid: 252fa48a20663364f8cf9bfea99ec280, type: 2}
+  action3: {fileID: 0}

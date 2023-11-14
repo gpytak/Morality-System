@@ -19,9 +19,9 @@ MonoBehaviour:
   - Have you seen any other travelers pass by here recently?
   optionText: []
   option0: {fileID: 11400000, guid: 2670b1242a6b217428b17b1a9f7a38a4, type: 2}
-  option1: {fileID: 11400000, guid: 2670b1242a6b217428b17b1a9f7a38a4, type: 2}
-  option2: {fileID: 11400000, guid: 7f9600561c352dc4da30e47b7a8f3188, type: 2}
-  option3: {fileID: 11400000, guid: 9d47c9f90a5c4704ba9051e6bebe6711, type: 2}
+  option1: {fileID: 11400000, guid: 7f9600561c352dc4da30e47b7a8f3188, type: 2}
+  option2: {fileID: 11400000, guid: 9d47c9f90a5c4704ba9051e6bebe6711, type: 2}
+  option3: {fileID: 0}
   action0: {fileID: 0}
   action1: {fileID: 0}
   action2: {fileID: 0}

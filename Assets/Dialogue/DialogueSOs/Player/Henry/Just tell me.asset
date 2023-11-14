@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
-  m_Name: It's my brother
+  m_Name: Just tell me
   m_EditorClassIdentifier: 
-  actors: 000000000000000005000000
+  actors: 0000000005000000
   randomActorName: 
   randomActorPortrait: {fileID: 0}
   dialogue:
-  - My brother went missing and I've been searching for him.
-  - Could you tell me where he went?
+  - Just tell me where they went.
   optionText: []
-  option0: {fileID: 11400000, guid: 8a4b93535acc4724db80fa6047a4b9a7, type: 2}
-  option1: {fileID: 11400000, guid: 8a4b93535acc4724db80fa6047a4b9a7, type: 2}
+  option0: {fileID: 11400000, guid: dd5439c8fff2b2842866fa55f33cf57e, type: 2}
+  option1: {fileID: 11400000, guid: dd5439c8fff2b2842866fa55f33cf57e, type: 2}
   option2: {fileID: 11400000, guid: db8d31c830f0c0648ab9f3ae6e0a3b6b, type: 2}
   option3: {fileID: 0}
   action0: {fileID: 0}
