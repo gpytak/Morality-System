@@ -270,7 +270,8 @@ public class DialogueManager : MonoBehaviour
                     break;
             }
         }
-        else
+        
+        if(villager.taskStarted)
         {
             // Check if the task if finished
             if(!villager.taskFinished) // If the task is not finished

@@ -2664,6 +2664,7 @@ MonoBehaviour:
   actorSO: {fileID: 11400000, guid: b35263c6f8ae3a2418f2aa07cf2d0c7a, type: 2}
   behavior: 0
   taskStarted: 0
+  taskFinished: 0
   taskComplete: 0
 --- !u!1 &892320613
 GameObject:
@@ -3966,6 +3967,7 @@ MonoBehaviour:
   actorSO: {fileID: 11400000, guid: 75adbacbf62c69a489b540b510fd209b, type: 2}
   behavior: 0
   taskStarted: 0
+  taskFinished: 0
   taskComplete: 0
 --- !u!70 &1166794703
 CapsuleCollider2D:
@@ -6212,6 +6214,7 @@ MonoBehaviour:
   actorSO: {fileID: 11400000, guid: 4fe35b552d9c61142b791c8d3f9b6c53, type: 2}
   behavior: 0
   taskStarted: 0
+  taskFinished: 0
   taskComplete: 0
 --- !u!1 &2145714502
 GameObject:
