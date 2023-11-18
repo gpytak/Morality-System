@@ -28,26 +28,3 @@ public class PlayerManager : MonoBehaviour
         }
     }
 }
-
-    // public void Game_Menu()
-    // {
-        
-    // }
-
-    // public void Quests()
-    // {
-        // public void Accept_Quest()
-        // {
-
-        // }
-    // }
-
-    // public void Inventory()
-    // {
-        
-    // }
-
-    // public void Discovery_Log()
-    // {
-        
-    // }

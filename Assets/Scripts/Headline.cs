@@ -65,6 +65,7 @@ public class Headline : MonoBehaviour
 
             if(playerCopyObject.position.x > 24)
             {
+                newPlayer.headline = "Headline";
                 playerMovement.enabled = true;
                 playerCopy.SetActive(false);
                 SceneManager.LoadScene("VillageScene");

@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
         }
         else if (moralityMeter >= 30 && moralityMeter < 60)
         {
-            reputationTitle = "Honorable";
+            reputationTitle = "Honorable traveler";
         }
         else if (moralityMeter >= 60 && moralityMeter < 90)
         {

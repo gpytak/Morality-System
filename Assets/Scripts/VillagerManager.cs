@@ -25,7 +25,7 @@ public class VillagerManager : MonoBehaviour
             else
                 newVillager[i].behavior = Random.Range(-1, 2);
             
-            Debug.Log(newVillager[i].actorSO.actorName + ": " + newVillager[i].behavior);
+            // Debug.Log(newVillager[i].actorSO.actorName + ": " + newVillager[i].behavior);
         }
     }
 }
