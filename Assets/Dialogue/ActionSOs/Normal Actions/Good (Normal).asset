@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Good (Normal)
   m_EditorClassIdentifier: 
   moralityValue: 1
-  actionWeight: 3
+  actionWeight: 5
   keyAction: 0
   keyEvent: 

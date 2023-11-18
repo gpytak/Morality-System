@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Good (Key)
   m_EditorClassIdentifier: 
   moralityValue: 1
-  actionWeight: 10
+  actionWeight: 20
   keyAction: 1
-  keyEvent: Test Key Good Action
+  keyEvent: travels to village and aids villagers with moving around supplies!
