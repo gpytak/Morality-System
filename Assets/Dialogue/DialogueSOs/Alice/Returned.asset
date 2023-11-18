@@ -10,19 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
-  m_Name: Investigate
+  m_Name: Returned
   m_EditorClassIdentifier: 
-  actors: 0000000005000000
+  actors: 020000000200000004000000
   randomActorName: 
   randomActorPortrait: {fileID: 0}
   dialogue:
-  - Have you seen any other travelers pass by here recently?
-  optionText: []
-  option0: {fileID: 11400000, guid: 9135a84b0c603df4fa3a61609239b810, type: 2}
-  option1: {fileID: 11400000, guid: 2729e66abf987af41a1f8be94eadd79c, type: 2}
-  option2: {fileID: 11400000, guid: ad9a22d310adf12438e765243075a10f, type: 2}
+  - Hello, traveler.
+  - Did you need something?
+  optionText:
+  - About that task.
+  - Passing through.
+  option0: {fileID: 11400000, guid: 1e6b5141460c6f34594b9973ed2a10db, type: 2}
+  option1: {fileID: 11400000, guid: 862aec5c65014a449ae76a29c399da6b, type: 2}
+  option2: {fileID: 0}
   option3: {fileID: 0}
-  action0: {fileID: 0}
-  action1: {fileID: 0}
+  action0: {fileID: 11400000, guid: 83ce917d9a979cc45ac4fd573bf78e4a, type: 2}
+  action1: {fileID: 11400000, guid: 83ce917d9a979cc45ac4fd573bf78e4a, type: 2}
   action2: {fileID: 0}
   action3: {fileID: 0}

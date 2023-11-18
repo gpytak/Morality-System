@@ -18,9 +18,9 @@ MonoBehaviour:
   dialogue:
   - Have you seen any other travelers pass by here recently?
   optionText: []
-  option0: {fileID: 11400000, guid: 9135a84b0c603df4fa3a61609239b810, type: 2}
-  option1: {fileID: 11400000, guid: 2729e66abf987af41a1f8be94eadd79c, type: 2}
-  option2: {fileID: 11400000, guid: ad9a22d310adf12438e765243075a10f, type: 2}
+  option0: {fileID: 11400000, guid: 5445ab638c545a6429bd32eadee29333, type: 2}
+  option1: {fileID: 11400000, guid: b46cd2c297e656041aa0afbf82733d60, type: 2}
+  option2: {fileID: 11400000, guid: 867f2224665e6744696fbc720946d689, type: 2}
   option3: {fileID: 0}
   action0: {fileID: 0}
   action1: {fileID: 0}

@@ -1232,12 +1232,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
       propertyPath: conversation.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
       propertyPath: conversation.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 1b7c1b9067d414944a6e38e5c6aa6b0c, type: 2}
+    - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
+      propertyPath: conversation.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c546546a8724cd04e92ec612d471ccca, type: 2}
+    - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
+      propertyPath: conversation.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 95741f51d0e48be4994b9711a44c3ab0, type: 2}
     - target: {fileID: 1254882875988832289, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.21
@@ -5049,12 +5057,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
       propertyPath: conversation.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
       propertyPath: conversation.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 62774f081c3e2c747b8e3e6238ce29d6, type: 2}
+    - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
+      propertyPath: conversation.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d86f1aa17a29b4942b574d0aa8b8ca9c, type: 2}
+    - target: {fileID: 632641868640934637, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
+      propertyPath: conversation.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: faa8d80a555907e448b3279e791bfb15, type: 2}
     - target: {fileID: 1254882875988832289, guid: c17d3adb78e337a4b884ff0ff41f35a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.189

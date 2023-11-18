@@ -22,9 +22,9 @@ MonoBehaviour:
   - Mind your business.
   - Investigate.
   - Passing through.
-  option0: {fileID: 11400000, guid: 40e5fe11035ca2848a7efdd343d87b1f, type: 2}
+  option0: {fileID: 11400000, guid: 2d7762581515ac24f8c57452269c1333, type: 2}
   option1: {fileID: 11400000, guid: 656241ec2f1e73b43b8b115a8c96ea27, type: 2}
-  option2: {fileID: 11400000, guid: 6051c7f295fdef846afee3ad338aabfb, type: 2}
+  option2: {fileID: 11400000, guid: 44a98727a925a154999f5f00d8dd6463, type: 2}
   option3: {fileID: 11400000, guid: 862aec5c65014a449ae76a29c399da6b, type: 2}
   action0: {fileID: 11400000, guid: 7b430f3e233c1a64bbc269a7bc0c566d, type: 2}
   action1: {fileID: 11400000, guid: 2ba234ccc11d0aa4fb2aec1383b61b80, type: 2}
