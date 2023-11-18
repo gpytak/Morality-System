@@ -17,7 +17,7 @@ MonoBehaviour:
   randomActorPortrait: {fileID: 0}
   dialogue:
   - I'll tell you, but I'm going to need you to do me a favor first.
-  - Give these supplies to Alice down yonder and then return to me. Deal?
+  - Give these supplies to Henry and then return to me. Deal?
   optionText:
   - Deal.
   - Just tell me.
