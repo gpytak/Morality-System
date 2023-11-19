@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class DialogueManager : MonoBehaviour
 
     // Player Freeze
     private PlayerMovement playerMovement;
+    private Transform playerObject;
     
     // PlayerManager Reference
     public PlayerManager playerManager;
@@ -49,6 +51,10 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Find the Player Transform
+        playerObject = GameObject.Find("Player").GetComponent<Transform>();
+        playerObject.position = new Vector3(-3, -1, 0);
+
         // Find PlayerMovement script
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
@@ -130,6 +136,12 @@ public class DialogueManager : MonoBehaviour
 
                 if((stepNum + 1) <= currentConversation.actors.Length)
                     stepNum += 1;
+            }
+            else if(currentConversation.actors[stepNum] == DialogueActors.End) // If there is an End
+            {
+                TurnOffDialogue();
+                
+                SceneManager.LoadScene("MainMenu");
             }
             else // Continue dialogue
                 PlayDialogue();
@@ -237,8 +249,6 @@ public class DialogueManager : MonoBehaviour
 
     public void Continue(int playerMorality, Villager villager)
     {
-        // Debug.Log("playerMorality: " + playerMorality);
-        // Debug.Log("villagerBehavior: " + villagerBehavior);
 
         if(!villager.taskStarted)
         {
@@ -343,5 +353,6 @@ public enum DialogueActors // Place in actors
     Continue, // Selecting this will tell the script that it needs to choose the next conversation.
     TaskStart, // Selecting this will tell the script that the task has been started.
     TaskComplete, // Selecting this will tell the script that the task has been complete.
-    End // Selecting this will tell the script to end the conversation
+    Brother,
+    End
 };

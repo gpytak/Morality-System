@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50169eb91f6da6343a08b17bc773ae4d, type: 3}
+  m_Name: Hello brother
+  m_EditorClassIdentifier: 
+  actors: 080000000800000000000000080000000000000009000000
+  randomActorName: 
+  randomActorPortrait: {fileID: 0}
+  dialogue:
+  - Well, well, well, look who it is. How are you doing, brother?
+  - What are you doing this far home, anyways? How'd you find me?
+  - I asked around. They described someone who looked like me passing through their
+    village and gave me directions.
+  - Well, you managed to find me. It's good to see you again, brother.
+  - Yeah, you too.
+  optionText: []
+  option0: {fileID: 11400000, guid: 01449e5c6184a62488a9b7b9c54cc34b, type: 2}
+  option1: {fileID: 11400000, guid: 971e6a0134e1ecd4187d957f24d355bc, type: 2}
+  option2: {fileID: 0}
+  option3: {fileID: 0}
+  action0: {fileID: 0}
+  action1: {fileID: 0}
+  action2: {fileID: 0}
+  action3: {fileID: 0}
