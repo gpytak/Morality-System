@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    private static GameObject[] persistentObjects = new GameObject[1]; // Array which holds each persistent object
-    public int objectIndex; // Index for each persistent object : Player=1
+    private static GameObject[] persistentObjects = new GameObject[2]; // Array which holds each persistent object
+    public int objectIndex; // Index for each persistent object : Player=0, PauseMenu=1
 
     // Called immediately before the Start() method
     void Awake()
