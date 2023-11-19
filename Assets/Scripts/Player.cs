@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public int reputationValue = 0; // Equal to the state of the morality meter
     public string headline = "Headline"; // Stores key action's keyEvent
 
+    public int tasksCompleted = 0; // The number of tasks completed by the player
+
     public void BufferMeter(int moralityValue, int actionWeight) {
         // Check the morality value of the action
         switch(moralityValue) {

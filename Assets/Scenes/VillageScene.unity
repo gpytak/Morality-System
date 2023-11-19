@@ -544,6 +544,7 @@ MonoBehaviour:
   reputationTitle: Traveler
   reputationValue: 0
   headline: Headline
+  tasksCompleted: 0
 --- !u!114 &49858734
 MonoBehaviour:
   m_ObjectHideFlags: 0

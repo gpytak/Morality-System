@@ -17,19 +17,31 @@ public class ExitScene : MonoBehaviour
     [SerializeField]
     private GameObject[] exitOptionButton; // Array which holds the buttons inputed in the DialogueManger game object
 
+    // Player Reference
+    private Player newPlayer;
+
     // Player Freeze
     private PlayerMovement playerMovement;
 
     // Player Animation References
     private Animator playerAnimator;
 
+    // VillagerManager Reference
+    private VillagerManager villagerManager;
+
     void Start()
     {
+        // Find the Player script
+        newPlayer = GameObject.Find("Player").GetComponent<Player>();
+
         // Find PlayerMovement script
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         // Find the Player Animator
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+
+        // Find the Player script
+        villagerManager = GameObject.Find("VillagerManager").GetComponent<VillagerManager>();
 
         exitCanvas.SetActive(false);
         exitOptionsPanel.SetActive(false);
@@ -76,9 +88,24 @@ public class ExitScene : MonoBehaviour
         }
         if(optionNum == 1)
         {
-            playerMovement.enabled = true;
-            promptInitiated = false;
-            SceneManager.LoadScene("TravelScene");
+            NextScene();
         }
+    }
+
+    public void NextScene()
+    {
+        playerMovement.enabled = true;
+        promptInitiated = false;
+
+        for (int i = 0; i < villagerManager.newVillager.Length; i++)
+        {   
+            if (villagerManager.newVillager[i].taskComplete)
+                newPlayer.tasksCompleted += 1;
+        }
+
+        if (newPlayer.tasksCompleted <= 5)
+            SceneManager.LoadScene("TravelScene");
+        else
+            SceneManager.LoadScene("EndScene");
     }
 }
