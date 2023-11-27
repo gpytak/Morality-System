@@ -14,7 +14,7 @@ public class VillagerManager : MonoBehaviour
     // DialogueManager Reference
     public DialogueManager dialogueManager;
 
-    public void Start() // Change this to a function thats called when the scene is created?
+    public void Start()
     {
         // Randomly generate the behavior of the villager at start
         for (int i = 0; i < newVillager.Length; i++)

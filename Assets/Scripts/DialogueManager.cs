@@ -280,7 +280,6 @@ public class DialogueManager : MonoBehaviour
                     break;
             }
         }
-        
         if(villager.taskStarted)
         {
             // Check if the task if finished
@@ -289,7 +288,6 @@ public class DialogueManager : MonoBehaviour
             else // If the task is finished
                 currentConversation = currentConversation.option1;
         }
-
         stepNum = 0; // Reset dialogue step counter for new conversation
     }
 
